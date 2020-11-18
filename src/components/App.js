@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import "../styles/App.css";
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
     });
   };
 
-  
+
    const start  = () => {
         setRenderBall(true) ;  
    }
@@ -55,15 +55,21 @@ const App = () => {
 
   useEffect( () => {
     const keyListener = (evt) => {
+      
       if(renderBall) {
-        if(evt.keycode === 37) {
+        if(evt.keyCode === 37) {
+         // console.log("key left to be  Pressed") ;
           updateXY(x-5,y);
-        }
-        else if(evt.keyCode === 38) {
+          //console.log("key left Pressed") ;
+        }else if(evt.keyCode === 38) {
+         // console.log("key down to be  Pressed") ;
           updateXY(x,y-5) ;
+         // console.log("key down Pressed") ;
         }else if(evt.keyCode === 39) {
+         // console.log("key right Pressed") ;
             updateXY(x+5,y) ;
-        }else if(evt.keCode === 40){
+          //  console.log("key right Pressed") ;
+        }else if(evt.keyCode === 40){
           updateXY(x,y+5) ;
         }
       }
